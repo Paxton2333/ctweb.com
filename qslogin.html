@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Question Login</title>
+  <style>
+    body {
+      font-family: "Comic Sans MS", cursive, sans-serif;
+      text-align: center;
+    }
+    h1 {
+      margin-top: 50px;
+    }
+    .contributor {
+      text-align: right;
+      margin-top: 20px;
+      color: gray;
+    }
+  </style>
+</head>
+<body>
+  <h1>Question Login:</h1>
+  <form>
+    <div id="questionContainer">
+      <p id="question"></p>
+      <input type="text" id="answer" required><br><br>
+      <input type="button" value="Submit" onclick="checkAnswer()">
+    </div>
+    <p id="result" style="display: none;"></p>
+  </form>
+  <div class="contributor">
+    <p>Contributed by CT, 2023</p>
+  </div>
+
+  <script>
+    var questions = [
+      {
+        question: "When was CT made in?",
+        answer: "2016"
+      },
+      {
+        question: "Who is the founder of CT?",
+        answer: "Paxton"
+      },
+      {
+        question: "What is the name of the Dr.?",
+        answer: "Dr. G"
+      },
+      {
+        question: "How much is the salary of CT per month?",
+        answer: "30000"
+      }
+    ];
+
+    var questionIndex = 0;
+
+    function displayQuestion() {
+      var questionElement = document.getElementById("question");
+      questionElement.textContent = questions[questionIndex].question;
+    }
+
+    function checkAnswer() {
+      var answerInput = document.getElementById("answer").value.trim();
+      var resultElement = document.getElementById("result");
+      
+      if (answerInput.toLowerCase() === questions[questionIndex].answer.toLowerCase()) {
+        resultElement.textContent = "Correct answer!";
+        resultElement.style.color = "green";
+        resultElement.style.display = "block";
+        setTimeout(function() {
+          if (questionIndex === questions.length - 1) {
+            window.location.href = "main.html";
+          } else {
+            questionIndex++;
+            displayQuestion();
+            resultElement.style.display = "none";
+          }
+        }, 1000);
+      } else {
+        resultElement.textContent = "Wrong answer. Try again.";
+        resultElement.style.color = "red";
+        resultElement.style.display = "block";
+      }
+    }
+
+    displayQuestion();
+  </script>
+</body>
+</html>
