@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>CT Official Website</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      background-color: black;
+      color: white;
+    }
+    h1 {
+      margin-top: 50px;
+      text-decoration: underline;
+      font-weight: bold;
+      color: white;
+    }
+    #menu {
+      margin-top: 30px;
+    }
+    #menu select {
+      font-size: 16px;
+      padding: 5px;
+      border: none;
+      border-radius: 5px;
+    }
+    #header {
+      margin-top: 50px;
+    }
+    #header h2 {
+      font-weight: bold;
+    }
+    #header p {
+      margin-top: 10px;
+      font-size: small;
+    }
+    #footer {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      font-size: small;
+    }
+    #next-page-btn {
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Welcome to CT Official Website</h1>
+  <div id="menu">
+    <select onchange="navigate()">
+      <option value="">Choose an option</option>
+      <option value="info.html">Info</option>
+      <option value="join.html">Join in</option>
+      <option value="login.html">Login</option>
+    </select>
+  </div>
+  <div id="header">
+    <h2>REMEMBRANCE</h2>
+    <p>In memory of Dr. G and Thatcher Davis</p>
+  </div>
+  <div id="content">
+    <h2>CT's Mission: Protecting Earth and the Universe</h2>
+    <p>At CT, we are dedicated to safeguarding our planet and the vast reaches of the universe from any malevolent extraterrestrial forces seeking to invade Earth. Our highly trained team of experts works tirelessly to develop advanced technologies, strategies, and defenses to counteract potential threats.</p>
+    <p>We are committed to continuous research and exploration, identifying potential weak points and vulnerabilities that could be exploited by hostile alien entities. Through vigilant surveillance, cutting-edge weaponry, and collaborative efforts with global partners, we strive to maintain the safety and security of humanity.</p>
+    <p>Furthermore, we emphasize the importance of public awareness and preparedness. We encourage individuals to stay informed, report any suspicious activities, and actively participate in community defense initiatives. Together, we can stand united against the forces that seek to undermine our existence.</p>
+    <p>Join us in our mission to protect and preserve the Earth, ensuring a prosperous future for all humankind.</p>
+  </div>
+  <div id="recent-news">
+    <h2>Recent News</h2>
+    <p>We recently discovered an unknown world inhabited by beings with extraordinary attributes, including individuals adorned with various animal-like ears. In a bold exploration effort, we dispatched our esteemed pioneers, Dr. G and Thatcher Davis, to investigate this perplexing realm.</p>
+    <p>However, communication with our explorers became disrupted due to the unprecedented magnetic field characteristics present in this enigmatic world. Despite these challenges, we maintain hope for their safety and success in unraveling the mysteries that lie within.</p>
+    <p>Our thoughts, prayers, and unwavering support are with Dr. G and Thatcher Davis as they navigate the uncharted territories of this alien realm. May their journey be filled with fortune and resilience, as they strive to broaden our understanding of the cosmos.</p>
+    <p>Stay tuned for further updates on their progress and the remarkable discoveries that await us. Together, we forge ahead in our quest for knowledge, protection, and the preservation of our planet and the vast expanses beyond.</p>
+  </div>
+  <div id="footer">
+    <p>Contributed by CT, 2023.</p>
+  </div>
+  <button id="next-page-btn" onclick="goToNextPage()">Next Page</button>
+  <script>
+    function navigate() {
+      var selectedOption = document.querySelector('#menu select').value;
+      if (selectedOption !== '') {
+        window.location.href = selectedOption;
+      }
+    }
+    function goToNextPage() {
+      window.location.href = 'index2.html';
+    }
+  </script>
+</body>
+</html>

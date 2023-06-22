@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>666</title>
+  <style>
+    body {
+      background-color: black;
+      margin: 0;
+      padding: 0;
+    }
+    .eye-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .eye-image {
+      max-width: 100%;
+      max-height: 100%;
+    }
+  </style>
+  <script>
+    window.addEventListener('DOMContentLoaded', function() {
+      var numImages = 100; // Number of images to create
+      var scrollSpeed = 10; // Speed of auto-scrolling in pixels per frame
+
+      // Create and append images
+      for (var i = 0; i < numImages; i++) {
+        var img = document.createElement('img');
+        img.src = 'eye.gif';
+        img.classList.add('eye-image');
+        document.body.appendChild(img);
+      }
+
+      // Auto-scroll function
+      function autoScroll() {
+        window.scrollBy(0, scrollSpeed);
+        if (window.scrollY < document.body.scrollHeight - window.innerHeight) {
+          requestAnimationFrame(autoScroll);
+        }
+      }
+
+      // Start auto-scrolling
+      autoScroll(10);
+    });
+  </script>
+</head>
+<body>
+  <div class="eye-container">
+    <!-- No need for an initial image here -->
+  </div>
+</body>
+</html>

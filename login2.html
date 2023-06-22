@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Login Page</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      background-color: black;
+      color: white;
+    }
+    h1 {
+      margin-top: 50px;
+      text-decoration: underline;
+      font-weight: bold;
+      color: white;
+    }
+    .login-panel {
+      margin-top: 50px;
+    }
+    .input-field {
+      margin-bottom: 20px;
+    }
+    .input-label {
+      display: block;
+      margin-bottom: 5px;
+    }
+    .input-text {
+      padding: 5px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+    }
+    .submit-button {
+      margin-top: 20px;
+      background-color: #add8e6;
+      color: black;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .submit-button:hover {
+      background-color: #8db1d3;
+    }
+    .message {
+      margin-top: 30px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>Login Panel</h1>
+  <div class="login-panel">
+    <div class="input-field">
+      <label for="username" class="input-label">Username:</label>
+      <input type="text" id="username" class="input-text" required>
+    </div>
+    <div class="input-field">
+      <label for="password" class="input-label">Password:</label>
+      <input type="password" id="password" class="input-text" required>
+    </div>
+    <button class="submit-button" onclick="login()">Login</button>
+  </div>
+  <script>
+    function login() {
+      var username = document.getElementById("username").value;
+      var password = document.getElementById("password").value;
+
+      if (username === "ThatcherDavis92" && password === "everydaygetsdarker") {
+        alert("Low Authority, No Permission to enter!!");
+      } else if ((username === "Paxton233" && password === "114514") || (username === "Nathan_12" && password === "reddust")) {
+        window.location.href = "top.html";
+      } else {
+        alert("Invalid username or password. Please try again.");
+      }
+    }
+  </script>
+</body>
+</html>

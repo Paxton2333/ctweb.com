@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>666DEATH666</title>
+  <script>
+    function openWindows() {
+      var numberOfWindows = Math.floor(Math.random() * 6) + 5; // Randomly choose between 5 to 10 windows
+
+      for (var i = 0; i < numberOfWindows; i++) {
+        var newWindow = window.open('', '_blank', 'width=400,height=400,left=' + (i * 50) + ',top=' + (i * 50));
+        newWindow.document.write(`
+          <!DOCTYPE html>
+          <html>
+          <head>
+            <title>666666</title>
+            <style>
+              body {
+                background-color: black;
+                color: red;
+                font-family: 'Courier New', Courier, monospace;
+                font-size: 36px;
+                text-align: center;
+                margin: 0;
+                padding: 50px;
+              }
+            </style>
+          </head>
+          <body>
+            <p>YOU ARE NEXT</p>
+          </body>
+          </html>
+        `);
+        newWindow.document.close();
+      }
+    }
+  </script>
+</head>
+<body onload="openWindows()">
+  <p>YOU ARE NEXT</p>
+</body>
+</html>

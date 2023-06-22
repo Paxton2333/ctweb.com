@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title style="color: red; font-family: 'Chiller', sans-serif; font-size: 36px; font-weight: bold;">DAVIS IS LOST AND CLEAR</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      background-color: black;
+      color: white;
+    }
+    h1 {
+      margin-top: 50px;
+      text-decoration: underline;
+      font-weight: bold;
+      color: red;
+      font-size: 36px;
+    }
+    #content {
+      margin-top: 30px;
+    }
+    #content p {
+      text-align: left;
+      margin-bottom: 20px;
+      color: red;
+      font-family: 'Chiller', sans-serif;
+      font-size: 24px;
+      font-weight: bold;
+    }
+    .creepy-font {
+      color: red;
+      font-family: 'Chiller', sans-serif;
+      font-size: 24px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>DAVIS IS LOST AND CLEAR</h1>
+  <div id="content">
+    <p>NOBODY IS GOING TO SAVE HIM</p>
+  </div>
+  <div id="buttons">
+    <button onclick="goBack()">Go back</button>
+    <button onclick="goToDeath()" class="creepy-font">NEXT</button>
+  </div>
+  <script>
+    function goBack() {
+      window.location.href = "index.html";
+    }
+    
+    function goToDeath() {
+      window.location.href = "death.html";
+    }
+  </script>
+</body>
+</html>

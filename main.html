@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Main Page</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      background-color: black;
+      color: white;
+    }
+    h1 {
+      margin-top: 50px;
+      text-decoration: underline;
+      font-weight: bold;
+      color: white;
+    }
+    p {
+      margin-top: 30px;
+      font-family: "Comic Sans MS", cursive, sans-serif;
+      font-size: small;
+      font-weight: bold;
+    }
+    .read-me {
+      margin-top: 50px;
+    }
+    .file {
+      margin-top: 30px;
+    }
+    .file-title {
+      text-decoration: underline;
+    }
+    .top-secret {
+      color: red;
+      font-weight: bold;
+      margin-top: 30px;
+    }
+    .link {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      color: blue;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+    .forbidden-link {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      color: blue;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+    .hidden {
+      display: none;
+    }
+    .login-button {
+      margin-top: 20px;
+      background-color: #add8e6;
+      color: black;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .login-button:hover {
+      background-color: #8db1d3;
+    }
+  </style>
+</head>
+<body>
+  <div class="options" onclick="location.href='more.html'">More...</div>
+  <div class="options" onclick="location.href='index.html'">Logout</div>
+  <h1>WELCOME</h1>
+  <p>YOU ARE READING THE TOP SECRET OF P CITY. BEWARE THAT IF YOU LEAK ANY OF THESE, YOU WILL FACE SERIOUS CONSEQUENCES!!!</p>
+  <div class="read-me">
+    <h2>READ ME</h2>
+    <p>If you are reading this, please, DO NOT LEAK any of the secrets in this TOP SECRET of P City. It is very important that these secrets remain undisclosed, as their exposure could lead to significant problems.</p>
+  </div>
+  <div class="file">
+    <h3 class="file-title">File_001</h3>
+    <p>Dr. G's True Origin?? He is the Doppelganger made by Paxton.</p>
+  </div>
+  <div class="file">
+    <h3 class="file-title">File_002</h3>
+    <p>Thatcher Davis gone lost in an unknown world...</p>
+  </div>
+  <div class="file">
+    <h3 class="file-title">File_003</h3>
+    <p>Dr. G went to an unknown world, he met many people with animal ears, and people with dark powers.</p>
+  </div>
+  <div class="file">
+    <h3 class="file-title">File_004</h3>
+    <p>"I have tried to leave this unknown place, but my teleportation system isn't working... Is it because the special magnetic field of this world...?" --- Dr. G</p>
+  </div>
+  <div class="file">
+    <h3 class="file-title">File_005</h3>
+    <p>"I'm in huge trouble, there are two women, they are here for me, I have to hide, but I cannot hide for long, they will find me someday..." --- Dr. G</p>
+  </div>
+  <div class="file">
+    <h3 class="file-title">File_006</h3>
+    <p>"They have found me, one of them can do some sort of magic, forming a whip with her blood, the other one has two guns in her both hands, is this even realistic? I can't take this anymore!" --- Dr. G</p>
+  </div>
+  <div class="file">
+    <h3 class="file-title">File_007</h3>
+    <p>"My Stand isn't working, this magnetic field of this world is so special, disabling my Stand and my teleportation system..." --- Dr. G</p>
+  </div>
+  <div class="file">
+    <h3 class="file-title">File_008</h3>
+    <p>"My mind is going numb... I can't feel..." --- Dr. G</p>
+  </div>
+  <div class="file">
+    <h3 class="file-title">File_009</h3>
+    <p>[File error: Cannot find file 333]</p>
+  </div>
+  <div class="top-secret">
+    <h3 class="file-title">TOP SECRET</h3>
+    <p style="color: white;">I have met so many unusual things. These are the first time I have ever seen. The <span style="color: red;">[REDACTED]</span> looks like it has many eyes... It looks like an angel from heaven... The <span style="color: red;">[REDACTED]</span> can be dangerous, and can be grateful... hope I can finish the <span style="color: red;">[REDACTED]</span> quickly...</p>
+  </div>
+  <div class="link" onclick="location.href='main2.html'">21/6/23</div>
+  <div class="forbidden-link" onclick="location.href='FORBIDDEN.html'">Unknown_333</div>
+  <button class="login-button" onclick="location.href='login2.html'">For more information, Click here</button>
+  <script>
+    document.querySelector('.forbidden-link').addEventListener('click', function() {
+      document.querySelector('.top-secret').classList.add('hidden');
+    });
+  </script>
+</body>
+</html>

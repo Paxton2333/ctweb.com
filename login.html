@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+  <style>
+    body {
+      font-family: "Comic Sans MS", cursive, sans-serif;
+      text-align: center;
+    }
+    h1 {
+      margin-top: 50px;
+    }
+    .contributor {
+      text-align: right;
+      margin-top: 20px;
+      color: gray;
+    }
+    .options {
+      margin-top: 20px;
+    }
+    .options button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      cursor: pointer;
+      border-radius: 4px;
+      margin-right: 10px;
+    }
+    .options button:hover {
+      background-color: #45a049;
+    }
+    .options-menu {
+      display: none;
+      margin-top: 10px;
+    }
+    .options-menu button {
+      display: block;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>WELCOME</h1>
+  <form action="main.html" method="post">
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" required><br><br>
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required onpaste="return false;"><br><br>
+    <input type="submit" value="Login">
+  </form>
+  <div class="contributor">
+    <p>Contributed by CT, 2023</p>
+  </div>
+  <div class="options">
+    <button onclick="toggleOptions()">Other Login method</button>
+    <div id="optionContainer" class="options-menu">
+      <button onclick="window.location.href = 'qslogin.html'">Question Login</button>
+      <button onclick="window.location.href = 'qklogin.html'">Quick Login</button>
+    </div>
+  </div>
+  
+  <script>
+    function toggleOptions() {
+      var optionContainer = document.getElementById("optionContainer");
+      if (optionContainer.style.display === "none") {
+        optionContainer.style.display = "block";
+      } else {
+        optionContainer.style.display = "none";
+      }
+    }
+    
+    document.querySelector("form").addEventListener("submit", function(event) {
+      event.preventDefault(); // Prevent form submission
+      
+      // Get entered username and password
+      var usernameInput = document.getElementById("username").value;
+      var passwordInput = document.getElementById("password").value;
+      
+      // Define valid usernames and passwords
+      var validUsernames = ["Paxton233", "ThatcherDavis92", "Nathan_12"];
+      var validPasswords = ["114514", "everydaygetsdarker", "reddust"];
+      
+      // Check if entered username and password are valid
+      if (validUsernames.indexOf(usernameInput) !== -1 && validPasswords.indexOf(passwordInput) !== -1) {
+        // Redirect to secret.html if the username is "Nathan_12" and password is "reddust"
+        if (usernameInput === "Nathan_12" && passwordInput === "reddust") {
+          window.location.href = "secret.html";
+        } else {
+          // Redirect to main.html for other valid logins
+          window.location.href = "main.html";
+        }
+      } else {
+        // Show error message
+        alert("Wrong Password, Please try again");
+      }
+    });
+  </script>
+</body>
+</html>
