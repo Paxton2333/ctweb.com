@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Quick Login</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+    }
+    h1 {
+      margin-top: 50px;
+      font-weight: bold;
+    }
+    .contributor {
+      text-align: right;
+      margin-top: 20px;
+      color: gray;
+    }
+    .tickbox-container {
+      margin-top: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    #accessButton {
+      margin-top: 20px;
+      padding: 10px 20px;
+    }
+    #errorMessage {
+      color: red;
+      margin-top: 10px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>QUICK LOGIN</h1>
+  <form id="loginForm" action="main.html" method="get">
+    <div class="tickbox-container">
+      <input type="checkbox" id="acceptCheckbox" required>
+      <label for="acceptCheckbox">I will not disclose any of these top secrets</label>
+    </div>
+    <button type="submit" id="accessButton">Access</button>
+    <p id="errorMessage"></p>
+  </form>
+  <div class="contributor">
+    <p>Contributed by CT, 2023</p>
+  </div>
+
+  <script>
+    var form = document.getElementById("loginForm");
+    form.addEventListener("submit", function(event) {
+      var acceptCheckbox = document.getElementById("acceptCheckbox");
+      var errorMessage = document.getElementById("errorMessage");
+
+      if (!acceptCheckbox.checked) {
+        event.preventDefault();
+        errorMessage.textContent = "You need to accept the rule.";
+        errorMessage.style.display = "block";
+      }
+    });
+  </script>
+</body>
+</html>
