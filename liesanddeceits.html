@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Lies and Deceits</title>
+  <style>
+    body {
+      font-family: "Courier New", monospace;
+      background-color: black;
+      color: white;
+      text-align: center;
+    }
+    
+    h1 {
+      font-size: 36px;
+      margin-top: 50px;
+    }
+    
+    p {
+      font-size: 16px;
+      line-height: 1.5;
+      margin-bottom: 20px;
+    }
+    
+    img {
+      max-width: 100%;
+      height: auto;
+      margin-bottom: 20px;
+      cursor: pointer;
+    }
+  </style>
+  <script>
+    function openPopups() {
+      for (var i = 0; i < 5; i++) {
+        var left = Math.floor(Math.random() * (window.innerWidth - 400));
+        var top = Math.floor(Math.random() * (window.innerHeight - 400));
+        var popup = window.open("deceits.jpg", "_blank", "width=400,height=400,left=" + left + ",top=" + top);
+        if (popup) {
+          popup.focus();
+        }
+      }
+    }
+  </script>
+</head>
+<body>
+  <h1>Lies and Deceits</h1>
+  
+  <p>Your collective display of cowardice has left me astounded; it is evident that you never possessed the faintest inkling of what you were truly doing. Such ignorance and timidity are truly disheartening. Reflecting upon the grand year of '92, I cannot help but recall how you all, without hesitation, abandoned me. The memory remains vivid, a poignant reminder of your lack of loyalty and courage. The ramifications of your actions continue to reverberate, leaving a lasting mark on my existence. Nevertheless, I persevere, driven by the knowledge that true strength lies not in the companionship of cowards, but in the resilience of an indomitable spirit.</p>
+  
+  <img src="3wisemonkeys.jpg" alt="Lies and Deceits" onclick="openPopups()">
+</body>
+</html>
