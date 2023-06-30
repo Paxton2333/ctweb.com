@@ -43,10 +43,10 @@
   <div id="countries">
     <select onchange="showTime()">
       <option value="">Choose a country</option>
-      <option value="China">China</option>
-      <option value="United States">United States</option>
-      <option value="United Kingdom">United Kingdom</option>
-      <!-- Add more country options here -->
+      <option value="America/New_York">United States (New York)</option>
+      <option value="Europe/London">United Kingdom (London)</option>
+      <option value="Asia/Shanghai">China (Shanghai)</option>
+      <!-- Add more country options here with their corresponding timezones -->
     </select>
   </div>
   <div id="clock">
@@ -58,16 +58,25 @@
   <script>
     function showTime() {
       var selectedCountry = document.querySelector('#countries select').value;
-      var currentTime = getLocalTime(selectedCountry);
-      document.getElementById('clock').innerText = currentTime;
+      if (selectedCountry) {
+        var currentTime = getLocalTime(selectedCountry);
+        document.getElementById('clock').innerText = currentTime;
+      }
     }
 
-    function getLocalTime(country) {
-      // This function should be implemented to fetch the current time for the selected country
-      // You can use external APIs or libraries to get the current time for each country
-      // For simplicity, I'm just returning a static time here. Replace it with real data.
-      var time = "12:00 PM"; // Replace this with the real current time for the selected country
-      return "Current time in " + country + ": " + time;
+    function getLocalTime(timezone) {
+      var options = {
+        timeZone: timezone,
+        hour12: true,
+        hour: 'numeric',
+        minute: 'numeric',
+        second: 'numeric'
+      };
+
+      // Get the current time in the selected timezone
+      var currentTime = new Date().toLocaleString([], options);
+
+      return "Current time in " + timezone + ": " + currentTime;
     }
   </script>
 </body>
