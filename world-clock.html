@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>World Time</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      background-color: black;
+      color: white;
+    }
+    h1 {
+      margin-top: 50px;
+      text-decoration: underline;
+      font-weight: bold;
+      color: white;
+    }
+    #countries {
+      margin-top: 30px;
+    }
+    #countries select {
+      font-size: 16px;
+      padding: 5px;
+      border: none;
+      border-radius: 5px;
+    }
+    #clock {
+      margin-top: 50px;
+      font-size: 24px;
+      font-weight: bold;
+    }
+    #footer {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      font-size: small;
+    }
+  </style>
+</head>
+<body>
+  <h1>World Time</h1>
+  <div id="countries">
+    <select onchange="showTime()">
+      <option value="">Choose a country</option>
+      <option value="China">China</option>
+      <option value="United States">United States</option>
+      <option value="United Kingdom">United Kingdom</option>
+      <!-- Add more country options here -->
+    </select>
+  </div>
+  <div id="clock">
+    <!-- The clock will be displayed here -->
+  </div>
+  <div id="footer">
+    <p>Contributed by CT, 2023.</p>
+  </div>
+  <script>
+    function showTime() {
+      var selectedCountry = document.querySelector('#countries select').value;
+      var currentTime = getLocalTime(selectedCountry);
+      document.getElementById('clock').innerText = currentTime;
+    }
+
+    function getLocalTime(country) {
+      // This function should be implemented to fetch the current time for the selected country
+      // You can use external APIs or libraries to get the current time for each country
+      // For simplicity, I'm just returning a static time here. Replace it with real data.
+      var time = "12:00 PM"; // Replace this with the real current time for the selected country
+      return "Current time in " + country + ": " + time;
+    }
+  </script>
+</body>
+</html>
