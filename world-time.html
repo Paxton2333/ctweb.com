@@ -31,15 +31,6 @@
       right: 10px;
       font-size: small;
     }
-    #input-box {
-      margin-top: 30px;
-    }
-    #input-box input[type="text"] {
-      font-size: 16px;
-      padding: 5px;
-      border: none;
-      border-radius: 5px;
-    }
   </style>
 </head>
 <body>
@@ -57,13 +48,8 @@
   <div id="footer">
     <p>Contributed by CT, 2023.</p>
   </div>
-  <div id="input-box" style="display: none;">
-    <input type="text" id="user-input" autofocus>
-  </div>
   <script>
-    var inputBox = document.getElementById("input-box");
-    var userInput = document.getElementById("user-input");
-    var keySequence = "";
+    var keySequence = ""; // Store the sequence of pressed keys
 
     function updateTime() {
       var germanyTime = getTimeForTimezone("Europe/Berlin");
@@ -85,33 +71,27 @@
       document.getElementById("nigeria-clock").innerText = "Nigeria: " + nigeriaTime;
     }
 
-    function openInputBox() {
-      inputBox.style.display = "block";
-      userInput.focus();
+    function getTimeForTimezone(timezone) {
+      var now = new Date();
+      var options = { timeZone: timezone, hour12: false, hour: "numeric", minute: "numeric", second: "numeric" };
+      return now.toLocaleTimeString([], options);
     }
 
-    function checkInput() {
-      var userInputValue = userInput.value.trim().toLowerCase();
-      keySequence += userInputValue;
+    function checkKeySequence(event) {
+      var key = event.key.toLowerCase();
+      keySequence += key;
+
       if (keySequence === "scr") {
-        window.location.href = "scr.html";
-      } else {
-        window.close();
+        window.location.href = "scr.html"; // Redirect to scr.html when key sequence is "scr"
       }
+
+      // Reset the key sequence after a timeout
+      setTimeout(function() {
+        keySequence = "";
+      }, 1000);
     }
 
-    document.addEventListener("keydown", function(event) {
-      if (event.key === "=") {
-        openInputBox();
-      }
-    });
-
-    userInput.addEventListener("keydown", function(event) {
-      if (event.key === "Enter") {
-        checkInput();
-      }
-    });
-
+    document.addEventListener("keydown", checkKeySequence);
     setInterval(updateTime, 1000);
   </script>
 </body>
