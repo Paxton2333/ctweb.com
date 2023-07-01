@@ -85,12 +85,6 @@
       document.getElementById("nigeria-clock").innerText = "Nigeria: " + nigeriaTime;
     }
 
-    function getTimeForTimezone(timezone) {
-      var now = new Date();
-      var options = { timeZone: timezone, hour12: false, hour: "numeric", minute: "numeric", second: "numeric" };
-      return now.toLocaleTimeString([], options);
-    }
-
     function openInputBox() {
       inputBox.style.display = "block";
       userInput.focus();
@@ -98,7 +92,8 @@
 
     function checkInput() {
       var userInputValue = userInput.value.trim().toLowerCase();
-      if (userInputValue === "scr") {
+      keySequence += userInputValue;
+      if (keySequence === "scr") {
         window.location.href = "scr.html";
       } else {
         window.close();
