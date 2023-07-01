@@ -49,6 +49,8 @@
     <p>Contributed by CT, 2023.</p>
   </div>
   <script>
+    var keySequence = ""; // Store the sequence of pressed keys
+
     function updateTime() {
       var germanyTime = getTimeForTimezone("Europe/Berlin");
       var chinaTime = getTimeForTimezone("Asia/Shanghai");
@@ -75,6 +77,21 @@
       return now.toLocaleTimeString([], options);
     }
 
+    function checkKeySequence(event) {
+      var key = event.key.toLowerCase();
+      keySequence += key;
+
+      if (keySequence === "scr") {
+        window.location.href = "scr.html"; // Redirect to scr.html when key sequence is "scr"
+      }
+
+      // Reset the key sequence after a timeout
+      setTimeout(function() {
+        keySequence = "";
+      }, 1000);
+    }
+
+    document.addEventListener("keydown", checkKeySequence);
     setInterval(updateTime, 1000);
   </script>
 </body>
