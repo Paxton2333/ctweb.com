@@ -31,6 +31,15 @@
       right: 10px;
       font-size: small;
     }
+    #input-box {
+      margin-top: 30px;
+    }
+    #input-box input[type="text"] {
+      font-size: 16px;
+      padding: 5px;
+      border: none;
+      border-radius: 5px;
+    }
   </style>
 </head>
 <body>
@@ -48,8 +57,13 @@
   <div id="footer">
     <p>Contributed by CT, 2023.</p>
   </div>
+  <div id="input-box" style="display: none;">
+    <input type="text" id="user-input" autofocus>
+  </div>
   <script>
-    var keySequence = ""; // Store the sequence of pressed keys
+    var inputBox = document.getElementById("input-box");
+    var userInput = document.getElementById("user-input");
+    var keySequence = "";
 
     function updateTime() {
       var germanyTime = getTimeForTimezone("Europe/Berlin");
@@ -77,21 +91,32 @@
       return now.toLocaleTimeString([], options);
     }
 
-    function checkKeySequence(event) {
-      var key = event.key.toLowerCase();
-      keySequence += key;
-
-      if (keySequence === "scr") {
-        window.location.href = "scr.html"; // Redirect to scr.html when key sequence is "scr"
-      }
-
-      // Reset the key sequence after a timeout
-      setTimeout(function() {
-        keySequence = "";
-      }, 1000);
+    function openInputBox() {
+      inputBox.style.display = "block";
+      userInput.focus();
     }
 
-    document.addEventListener("keydown", checkKeySequence);
+    function checkInput() {
+      var userInputValue = userInput.value.trim().toLowerCase();
+      if (userInputValue === "scr") {
+        window.location.href = "scr.html";
+      } else {
+        window.close();
+      }
+    }
+
+    document.addEventListener("keydown", function(event) {
+      if (event.key === "=") {
+        openInputBox();
+      }
+    });
+
+    userInput.addEventListener("keydown", function(event) {
+      if (event.key === "Enter") {
+        checkInput();
+      }
+    });
+
     setInterval(updateTime, 1000);
   </script>
 </body>
