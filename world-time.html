@@ -16,6 +16,15 @@
       font-weight: bold;
       color: white;
     }
+    #country-selector {
+      margin-top: 30px;
+    }
+    #country-selector select {
+      font-size: 16px;
+      padding: 5px;
+      border: none;
+      border-radius: 5px;
+    }
     #clock-container {
       margin-top: 30px;
     }
@@ -35,35 +44,34 @@
 </head>
 <body>
   <h1>World Time</h1>
+  <div id="country-selector">
+    <label for="country-select">Select a country:</label>
+    <select id="country-select" onchange="updateTime()">
+      <option value="">Choose a country</option>
+      <option value="Europe/Berlin">Germany</option>
+      <option value="Asia/Shanghai">China</option>
+      <option value="America/New_York">USA</option>
+      <option value="Europe/London">UK</option>
+      <option value="Europe/Moscow">Russia</option>
+      <option value="America/Toronto">Canada</option>
+      <option value="Africa/Johannesburg">South Africa</option>
+      <!-- Add more countries here -->
+    </select>
+  </div>
   <div id="clock-container">
-    <div id="germany-clock"></div>
-    <div id="china-clock"></div>
-    <div id="usa-clock"></div>
-    <div id="uk-clock"></div>
-    <div id="russia-clock"></div>
-    <div id="canada-clock"></div>
-    <div id="south-africa-clock"></div>
+    <div id="country-clock"></div>
   </div>
   <div id="footer">
     <p>Contributed by CT, 2023.</p>
   </div>
   <script>
     function updateTime() {
-      var germanyTime = getTimeForTimezone("Europe/Berlin");
-      var chinaTime = getTimeForTimezone("Asia/Shanghai");
-      var usaTime = getTimeForTimezone("America/New_York");
-      var ukTime = getTimeForTimezone("Europe/London");
-      var russiaTime = getTimeForTimezone("Europe/Moscow");
-      var canadaTime = getTimeForTimezone("America/Toronto");
-      var southAfricaTime = getTimeForTimezone("Africa/Johannesburg");
-
-      document.getElementById("germany-clock").innerText = "Germany: " + germanyTime;
-      document.getElementById("china-clock").innerText = "China: " + chinaTime;
-      document.getElementById("usa-clock").innerText = "USA: " + usaTime;
-      document.getElementById("uk-clock").innerText = "UK: " + ukTime;
-      document.getElementById("russia-clock").innerText = "Russia: " + russiaTime;
-      document.getElementById("canada-clock").innerText = "Canada: " + canadaTime;
-      document.getElementById("south-africa-clock").innerText = "South Africa: " + southAfricaTime;
+      var selectedCountry = document.getElementById("country-select").value;
+      
+      if (selectedCountry !== '') {
+        var countryTime = getTimeForTimezone(selectedCountry);
+        document.getElementById("country-clock").innerText = selectedCountry + ": " + countryTime;
+      }
     }
 
     function getTimeForTimezone(timezone) {
@@ -71,8 +79,6 @@
       var options = { timeZone: timezone, hour12: false, hour: "numeric", minute: "numeric", second: "numeric" };
       return now.toLocaleTimeString([], options);
     }
-
-    setInterval(updateTime, 1000);
   </script>
 </body>
 </html>
