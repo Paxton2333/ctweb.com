@@ -82,7 +82,11 @@
     function calculateResult() {
       try {
         var result = eval(display);
-        resultElement.innerText = result;
+        if (result === 114) {
+          window.location.href = "114.html";
+        } else {
+          resultElement.innerText = result;
+        }
       } catch (error) {
         resultElement.innerText = "Error";
       }
